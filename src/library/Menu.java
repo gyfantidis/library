@@ -15,7 +15,7 @@ public class Menu {
         System.out.println("Please give member id: ");
         String memberId = input.next();
 
-        LibraryMember lm = new LibraryMember(id, name, memberId);
+        LibraryMember lm = new LibraryMember(name, id, memberId);
         boolean result = library.addMember(lm);
         if (result) {
             System.out.println(lm + " added successfully");

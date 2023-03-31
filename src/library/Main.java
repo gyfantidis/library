@@ -3,12 +3,13 @@ package library;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import static library.ReadAndWriteToFile.*;
+import static library.Menu.*;
 
 public class Main {
     public static void main(String[] args) {
 
         //Checking if library state exists so as to be loaded
-        String fileName = "state2.dat";
+        String fileName = "state.dat";
         Library library = readLibraryState(fileName);
         if (library == null) {
             library = new Library("library of Kilkis", "Kilkis");
@@ -35,22 +36,22 @@ public class Main {
             System.out.println();
             switch (choice) {
                 case 1:
-                    Menu.getLibraryMember(input, library);
+                    getLibraryMember(input, library);
                     break;
                 case 2:
-                    Menu.getAddBook(input, true, library);
+                    getAddBook(input, true, library);
                     break;
                 case 3:
-                    Menu.getAddBook(input, false, library);
+                    getAddBook(input, false, library);
                     break;
                 case 4:
-                    Menu.lendOrSellBook(input, true, library);
+                    lendOrSellBook(input, true, library);
                     break;
                 case 5:
-                    Menu.lendOrSellBook(input, false, library);
+                    lendOrSellBook(input, false, library);
                     break;
                 case 6:
-                    Menu.returnBook(input, library);
+                    returnBook(input, library);
                     break;
                 case 7:
                     library.printStatus();

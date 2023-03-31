@@ -1,6 +1,6 @@
 package library;
 
-// LibraryMember extends Person with a propertie memberId
+// LibraryMember extends Person with a properties memberId
 public class LibraryMember extends Person {
     private String memberId;
 
