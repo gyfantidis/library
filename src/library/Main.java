@@ -2,12 +2,19 @@ package library;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import static library.ReadAndWriteToFile.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        Library library = new Library("Library of Kilkis", "Kilkis");
-        System.out.println("Menu for Library Management");
+        //Checking if library state exists so as to be loaded
+        String fileName = "state2.dat";
+        Library library = readLibraryState(fileName);
+        if (library == null) {
+            library = new Library("library of Kilkis", "Kilkis");
+        }
+
+        System.out.println("Menu for library Management");
         int choice = 0;
         Scanner input = new Scanner(System.in);
         do {
@@ -50,6 +57,10 @@ public class Main {
                     break;
             }
 
+            //Store library state pew each method that updates it
+            if (choice >= 1 && choice <= 6) {
+                writeLibraryState(library, fileName);
+            }
         } while (choice >= 1 && choice <= 7);
 
         input.close();

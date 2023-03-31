@@ -1,5 +1,6 @@
 package library;
 
+
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -99,17 +100,16 @@ public class Menu {
     }
 
 
-    public static void  returnBook(Scanner input, Library library){
+    public static void returnBook(Scanner input, Library library) {
         System.out.println("Please give isbn: ");
         String isbn = input.next();
         System.out.println("Please give member id: ");
         String memberId = input.next();
 
         boolean result = library.returnBook(isbn, memberId);
-        if(result){
+        if (result) {
             System.out.println("Book was successfully returned");
-        }
-        else{
+        } else {
             System.out.println("Something went wrong while trying to return book");
         }
     }

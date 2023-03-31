@@ -13,7 +13,7 @@ public class Person {
     }
 
     public String getName() {
-        return name;
+        return new String(name);
     }
 
     public void setName(String name) {
@@ -21,7 +21,7 @@ public class Person {
     }
 
     public String getId() {
-        return id;
+        return new String(id);
     }
 
     public void setId(String id) {

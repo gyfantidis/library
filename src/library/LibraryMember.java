@@ -10,7 +10,7 @@ public class LibraryMember extends Person {
     }
 
     public String getMemberId() {
-        return memberId;
+        return new String(memberId);
     }
 
     @Override

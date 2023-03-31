@@ -2,7 +2,7 @@ package library;
 
 import java.util.HashSet;
 import java.util.Set;
-import java.util.SimpleTimeZone;
+
 
 public class Library {
     private String name;
@@ -18,20 +18,20 @@ public class Library {
     }
 
     //add selling book
-    public boolean addSellingBook(SellingBook sb){
+    public boolean addSellingBook(SellingBook sb) {
         return sellingBooks.add(sb);
     }
 
     //add lending book
-    public boolean addLendingBook(LendingBook lb){
+    public boolean addLendingBook(LendingBook lb) {
         return lendingBooks.add(lb);
     }
 
     //add library member
-    public boolean addMember(LibraryMember lm){
+    public boolean addMember(LibraryMember lm) {
         //new member id should be unique
-        for(LibraryMember member: members){
-            if(member.getMemberId().equals(lm.getMemberId())){
+        for (LibraryMember member : members) {
+            if (member.getMemberId().equals(lm.getMemberId())) {
                 return false;
             }
         }
@@ -39,9 +39,9 @@ public class Library {
     }
 
     //get member from id
-    private LibraryMember getMember(String memberId){
-        for(LibraryMember member: members){
-            if(member.getId().equals(memberId)){
+    private LibraryMember getMember(String memberId) {
+        for (LibraryMember member : members) {
+            if (member.getId().equals(memberId)) {
                 return member;
             }
         }
@@ -49,10 +49,10 @@ public class Library {
     }
 
     //get selling book from isbn
-    private Book getSellingBook(String isbn){
-        Book book = new SellingBook(isbn,"",1);
-        for(Book b: sellingBooks){
-            if(b.equals(book)){
+    private Book getSellingBook(String isbn) {
+        Book book = new SellingBook(isbn, "", 1);
+        for (Book b : sellingBooks) {
+            if (b.equals(book)) {
                 return b;
             }
         }
@@ -60,10 +60,10 @@ public class Library {
     }
 
     //get lending book from isbn
-    private Book getLendingBook(String isbn){
-        Book book = new LendingBook(isbn,"",1);
-        for(Book b: lendingBooks){
-            if(b.equals(book)){
+    private Book getLendingBook(String isbn) {
+        Book book = new LendingBook(isbn, "", 1);
+        for (Book b : lendingBooks) {
+            if (b.equals(book)) {
                 return b;
             }
         }
@@ -71,10 +71,10 @@ public class Library {
     }
 
     //selling book
-    public boolean sellBook(String isbn, String memberId){
+    public boolean sellBook(String isbn, String memberId) {
         Book b = getSellingBook(isbn);
         LibraryMember lm = getMember(memberId);
-        if(b != null && lm !=null){
+        if (b != null && lm != null) {
             SellingBook sb = (SellingBook) b;
             return sb.sell(lm);
         }
@@ -82,10 +82,10 @@ public class Library {
     }
 
     //loan book
-    public boolean loanBook(String isbn, String memberId){
+    public boolean loanBook(String isbn, String memberId) {
         Book b = getLendingBook(isbn);
         LibraryMember lm = getMember(memberId);
-        if(b != null && lm != null){
+        if (b != null && lm != null) {
             LendingBook lb = (LendingBook) b;
             return lb.loan(lm);
         }
@@ -93,10 +93,10 @@ public class Library {
     }
 
     // return book
-    public boolean returnBook(String isbn, String memberId){
+    public boolean returnBook(String isbn, String memberId) {
         Book b = getLendingBook(isbn);
         LibraryMember lm = getMember(memberId);
-        if (b != null && lm != null){
+        if (b != null && lm != null) {
             LendingBook lb = (LendingBook) b;
             return lb.returnBack(lm);
         }
@@ -104,51 +104,22 @@ public class Library {
     }
 
     //print method
-    public void printStatus(){
+    public void printStatus() {
         System.out.println("Member:");
-        for(LibraryMember lm :members){
+        for (LibraryMember lm : members) {
             System.out.println(lm);
         }
 
         System.out.println("Books to Lend:");
-        for(Book lb:lendingBooks){
+        for (Book lb : lendingBooks) {
             System.out.println(lb);
         }
 
         System.out.println("Books to sell:");
-        for(Book lb: sellingBooks){
+        for (Book lb : sellingBooks) {
             System.out.println(lb);
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

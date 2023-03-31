@@ -14,7 +14,7 @@ public abstract class Book {
     }
 
     public String getIsbn() {
-        return isbn;
+        return new String(isbn);
     }
 
     public void setIsbn(String isbn) {
@@ -22,7 +22,7 @@ public abstract class Book {
     }
 
     public String getTitle() {
-        return title;
+        return new String(title);
     }
 
     public void setTitle(String title) {
